@@ -1,0 +1,77 @@
+.startOrbBtn {
+  display: flex;
+  width: 32px;
+  height: 32px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+  border-radius: 6px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.3s ease;
+}
+
+.startOrbBtn:hover::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.2);
+  pointer-events: none;
+}
+
+.up-rectangleRight,
+.up-rectangleLeft {
+  width: 100%;
+  height: 0.8rem;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.down-rectangleRight {
+  width: 100%;
+  height: 0.8rem;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.down-rectangleLeft {
+  width: 100%;
+  height: 0.8rem;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+@media (min-width: 600px) {
+  .startOrbBtn {
+    width: 20px;
+    height: 20px;
+  }
+
+  .up-rectangleRight,
+  .up-rectangleLeft,
+  .down-rectangleRight,
+  .down-rectangleLeft {
+    height: 0.5rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .startOrbBtn {
+    width: 32px;
+    height: 32px;
+  }
+
+  .up-rectangleRight,
+  .up-rectangleLeft,
+  .down-rectangleRight,
+  .down-rectangleLeft {
+    height: 0.9rem;
+  }
+}

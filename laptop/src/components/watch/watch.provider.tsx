@@ -2,20 +2,20 @@ import React, { createContext, useState, useContext, ReactNode, SetStateAction, 
 
 
 type DateContext = {
-    day: number;
-    setDay: Dispatch<SetStateAction<number>>;
+    day: string;
+    setDay: Dispatch<SetStateAction<string>>;
 
-    month: number;
-    setMonth: Dispatch<SetStateAction<number>>;
+    month: string;
+    setMonth: Dispatch<SetStateAction<string>>;
 
-    year: number;
-    setYear: Dispatch<SetStateAction<number>>;
+    year: string;
+    setYear: Dispatch<SetStateAction<string>>;
 
-    hour: number;
-    setHour:Dispatch<SetStateAction<number>>;
+    hour: string;
+    setHour:Dispatch<SetStateAction<string>>;
 
-    minutes: number,
-    setMinutes: Dispatch<SetStateAction<number>>;
+    minutes: string,
+    setMinutes: Dispatch<SetStateAction<string>>;
 };
 
 
@@ -25,12 +25,12 @@ const DetailsContext = createContext<DateContext | undefined>(undefined);
 export const DateContextProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
 
 
-    const [day, setDay] = useState<number>(8);
-    const [month, setMonth] = useState<number>(8);
-    const [year, setYear] = useState<number>(2024);
+    const [day, setDay] = useState<string>("8");
+    const [month, setMonth] = useState<string>("8");
+    const [year, setYear] = useState<string>("2024");
 
-    const [hour, setHour]= useState<number>(19);
-    const [minutes, setMinutes] = useState(48);
+    const [hour, setHour]= useState<string>("19");
+    const [minutes, setMinutes] = useState<string>("48");
     
 
 

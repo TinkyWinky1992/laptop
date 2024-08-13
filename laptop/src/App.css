@@ -5,9 +5,30 @@
   flex-shrink: 0;
   width: 100%; 
   height: 100vh; 
+  overflow: hidden;
 
 }
 
 .test{
   background: url("./assets/random-bg-test.png") lightgray 50% / cover no-repeat
+}
+
+
+
+.fade-enter {
+  opacity: 0;
+}
+
+.fade-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit-active {
+  opacity: 0;
+  transition: opacity 500ms ease-out;
 }

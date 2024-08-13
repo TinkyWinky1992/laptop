@@ -1,19 +1,22 @@
 import { useEffect, useState } from 'react';
-  //@ts-ignore
-import { CSSTransition } from 'react-transition-group';
+//@ts-ignore
+import { StartOrbBtnContextProvider } from './components';
+import { DrawerMenu } from './components';
 import { MainAppBar, DateContextProvider } from './components';
 import Grid from '@mui/material/Grid';
-import './App.css'
+import './App.css';
 
-function App() {
-  //@ts-ignore
+export default function App() {
   const [isOpen, setIsOpen] = useState(false);
+
 
   useEffect(() => {
     const handleMessage = (event: MessageEvent) => {
-      const { action } = event.data;
-      console.log('Received message action:', event.data);
-      setIsOpen(action);
+      if (event.data.type === "ui") {
+        const { action } = event.data;
+        console.log('Received message action:', event.data);
+        setIsOpen(action);
+      }
     };
 
     window.addEventListener('message', handleMessage);
@@ -23,40 +26,67 @@ function App() {
     };
   }, []);
 
-
   return (
-      <Grid container className='App'>
-          <Grid item className='test' sx={{
+    isOpen && (
+      <Grid container className="App">
+        <Grid
+          item
+          className="test"
+          sx={{
             width: {
-              lg: '100rem',
-              xs: "50rem"
+              lg: "100rem",
+              xs: "50rem",
             },
             height: {
-              lg: '50rem',
-              xs: "30rem"
+              lg: "50rem",
+              xs: "30rem",
             },
-            borderRadius: '12px',
-            border: '2px solid #515151',
-            position: 'relative',
-          }}>
-            <DateContextProvider>
-              <MainAppBar/>
-            </DateContextProvider>
-            
-          </Grid>
-
+            borderRadius: "12px",
+            border: "2px solid #515151",
+            position: "relative",
+          }}
+        >
+          <DateContextProvider>
+            <StartOrbBtnContextProvider>
+              <MainAppBar />
+              <DrawerMenu />
+            </StartOrbBtnContextProvider>
+          </DateContextProvider>
+        </Grid>
       </Grid>
-   
-  )
+    )
+  );
 }
+//DetailsContext
 
-export default App
+
+
 /*
-    <CSSTransition
-      in={isOpen}
-      timeout={500}
-      classNames="fade"
-      unmountOnExit
-    >
- </CSSTransition>
-*/
+    <Grid container className="App">
+      <Grid
+        item
+        className="test"
+        sx={{
+          width: {
+            lg: "100rem",
+            xs: "50rem",
+          },
+          height: {
+            lg: "50rem",
+            xs: "30rem",
+          },
+          borderRadius: "12px",
+          border: "2px solid #515151",
+          position: "relative",
+        }}
+      >
+        <DateContextProvider>
+          <StartOrbBtnContextProvider>
+            <MainAppBar />
+            <DrawerMenu />
+          </StartOrbBtnContextProvider>
+        </DateContextProvider>
+      </Grid>
+    </Grid>
+
+      */
