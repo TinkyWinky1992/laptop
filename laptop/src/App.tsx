@@ -7,6 +7,7 @@ import Grid from '@mui/material/Grid';
 import './App.css';
 
 export default function App() {
+  /*
   const [isOpen, setIsOpen] = useState(false);
 
 
@@ -25,8 +26,43 @@ export default function App() {
       window.removeEventListener('message', handleMessage);
     };
   }, []);
+  */
 
   return (
+    <Grid container className="App">
+      <Grid
+        item
+        className="test"
+        sx={{
+          width: {
+            lg: "100rem",
+            xs: "50rem",
+          },
+          height: {
+            lg: "50rem",
+            xs: "30rem",
+          },
+          borderRadius: "12px",
+          border: "2px solid #515151",
+          position: "relative",
+        }}
+      >
+        <DateContextProvider>
+          <StartOrbBtnContextProvider>
+            <MainAppBar />
+            <DrawerMenu />
+          </StartOrbBtnContextProvider>
+        </DateContextProvider>
+      </Grid>
+    </Grid>
+  );
+}
+//DetailsContext
+
+
+
+/*
+
     isOpen && (
       <Grid container className="App">
         <Grid
@@ -55,38 +91,6 @@ export default function App() {
         </Grid>
       </Grid>
     )
-  );
-}
-//DetailsContext
 
-
-
-/*
-    <Grid container className="App">
-      <Grid
-        item
-        className="test"
-        sx={{
-          width: {
-            lg: "100rem",
-            xs: "50rem",
-          },
-          height: {
-            lg: "50rem",
-            xs: "30rem",
-          },
-          borderRadius: "12px",
-          border: "2px solid #515151",
-          position: "relative",
-        }}
-      >
-        <DateContextProvider>
-          <StartOrbBtnContextProvider>
-            <MainAppBar />
-            <DrawerMenu />
-          </StartOrbBtnContextProvider>
-        </DateContextProvider>
-      </Grid>
-    </Grid>
 
       */

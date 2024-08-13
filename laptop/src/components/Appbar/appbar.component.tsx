@@ -7,6 +7,7 @@ import { timeDto } from "../../Dto";
 import { test } from "../../service";
 import { StartOrbButton } from "../Buttons";
 export const MainAppBar: React.FC = () => {
+  /*
   const { setHour, setMinutes } = useDateDetailsContext();
 
   const formatTime = (value: number): string => {
@@ -31,7 +32,7 @@ export const MainAppBar: React.FC = () => {
     };
     fetchTime();
   }, [setHour, setMinutes]);
-
+*/
   return (
     <Grid
       container
@@ -92,7 +93,7 @@ export const MainAppBar: React.FC = () => {
             sx={{
               color: "#F2F2F2",
               fontFamily: "Inter",
-              fontSize: "16px",
+              fontSize: { lg:"16px", sm:"12px"},
               fontStyle: "normal",
               fontWeight: "400",
               lineHeight: "normal",

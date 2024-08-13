@@ -1,17 +1,32 @@
 import { Box } from "@mui/material";
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import "./startorb.style.css";
 import { useStartOrbBtnContext } from "./startorb.provider";
 
 export const StartOrbButton: React.FC = () => {
-  const { setOpen, open } = useStartOrbBtnContext();
+  const { setOpen, open, drawerRef } = useStartOrbBtnContext();
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        drawerRef.current &&
+        !drawerRef.current.contains(event.target as Node)
+      )
+        setOpen(false);
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [setOpen]);
 
   const handleClick = () => {
-    if(open == false)
+    if (open == false) 
         setOpen(true);
     else
-        setOpen(false);
-        
+      setOpen(false);
   };
 
   return (
