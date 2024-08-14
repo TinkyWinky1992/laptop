@@ -1,3 +1,2 @@
-export * from './chatbuttondrawer.component'
-export * from './notebuttondrawer.component'
-export * from './jobifybuttondrawer.component'
+export * from './InstalledAppsDrawerButtons';
+export * from './SettingsDrawerButtons';
