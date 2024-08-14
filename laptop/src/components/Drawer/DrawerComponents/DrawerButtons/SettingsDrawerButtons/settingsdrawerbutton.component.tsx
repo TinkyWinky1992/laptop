@@ -1,7 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import React from "react";
-import { Erase } from "../../../../../icons";
-export const EraseButtonDrawer: React.FC = () => {
+
+export const SettingsDrawerButton: React.FC<{icon:React.ReactNode}> = ({icon}) => {
   return (
     <Box
       component={"button"}
@@ -17,7 +17,7 @@ export const EraseButtonDrawer: React.FC = () => {
         cursor: "pointer",
       }}
     >
-      <Erase />
+      {icon}
       <Typography
         sx={{
           color: "#FFF",

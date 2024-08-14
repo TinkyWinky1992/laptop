@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
-import { InstalledAppLayout, SettingsLayout } from "../DrawerComponents";
+import { InstalledAppLayout, SettingsLayout } from "./DrawerComponents";
 import React, { useState, useEffect } from "react";
-import { useStartOrbBtnContext } from "../../Buttons";
+import { useStartOrbBtnContext } from "../Buttons";
 import { motion } from "framer-motion";
 
 export const DrawerMenu: React.FC = () => {
@@ -15,8 +15,6 @@ export const DrawerMenu: React.FC = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
   const bottomValue = windowWidth >= 960 ? 80 : 50;
-
-
 
   return (
     <motion.div
@@ -74,8 +72,8 @@ export const DrawerMenu: React.FC = () => {
             alignSelf: "stretch",
           }}
         >
-        <InstalledAppLayout/>
-        <SettingsLayout/>
+          <InstalledAppLayout />
+          <SettingsLayout />
         </Box>
       </Box>
     </motion.div>

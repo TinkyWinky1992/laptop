@@ -1,1 +1,1 @@
-export * from './DrawerMenu'
+export * from './drawermenu.component'

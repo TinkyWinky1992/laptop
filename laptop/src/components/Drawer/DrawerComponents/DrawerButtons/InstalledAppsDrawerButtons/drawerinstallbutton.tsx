@@ -1,7 +1,19 @@
 import { Box, Typography } from "@mui/material";
 import React from "react";
-
-export const NoteButtonDrawer: React.FC = () => {
+type ButtonProps = {
+  borderColor: string;
+  backgroundColor: string;
+  labelColor: string;
+  label: string;
+  name: string;
+};
+export const DrawerInstallButtons: React.FC<ButtonProps> = ({
+  borderColor,
+  backgroundColor,
+  labelColor,
+  label,
+  name,
+}) => {
   return (
     <Box
       component={"button"}
@@ -27,13 +39,13 @@ export const NoteButtonDrawer: React.FC = () => {
           justifyContent: "center",
           alignItems: "center",
           borderRadius: "4px",
-          border: "1px solid rgba(112, 142, 245, 0.80)",
-          background: "rgba(112, 142, 245, 0.40)",
+          border: borderColor, //"1px solid rgba(112, 142, 245, 0.80)"
+          background: backgroundColor, //"rgba(112, 142, 245, 0.40)"
         }}
       >
         <Typography
           sx={{
-            color: "#708EF5",
+            color: labelColor, //"#708EF5"
             fontFamily: "Inter",
             fontSize: { lg: "12px", sm: "8px" },
             fontStyle: "normal",
@@ -41,7 +53,7 @@ export const NoteButtonDrawer: React.FC = () => {
             lineHeight: "normal",
           }}
         >
-          N
+          {label}
         </Typography>
       </Box>
       <Typography
@@ -54,7 +66,7 @@ export const NoteButtonDrawer: React.FC = () => {
           lineHeight: "normal",
         }}
       >
-        Notes
+        {name}
       </Typography>
     </Box>
   );

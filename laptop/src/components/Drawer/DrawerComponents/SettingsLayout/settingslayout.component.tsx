@@ -1,7 +1,8 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
 import { ProfileDrawer } from "./SettingsLayoutComponents";
-import { EraseButtonDrawer } from "../ApplicationButtons";
+import { SettingsDrawerButton } from "../DrawerButtons";
+import { Erase,Gallery } from "../../../../icons";
 import { motion } from "framer-motion";
 import { itemVariants, hoverEffect } from "../drawerutils";
 
@@ -33,12 +34,21 @@ export const SettingsLayout: React.FC = () => {
         Quick Actions
       </Typography>
 
-      <motion.li variants={itemVariants} whileHover={hoverEffect} style={{ listStyleType: "none" }}
-       >
-        <EraseButtonDrawer />
+      <motion.li
+        variants={itemVariants}
+        whileHover={hoverEffect}
+        style={{ listStyleType: "none" }}
+      >
+        <SettingsDrawerButton icon={<Erase/>} />
       </motion.li>
 
-
+      <motion.li
+        variants={itemVariants}
+        whileHover={hoverEffect}
+        style={{ listStyleType: "none" }}
+      >
+        <SettingsDrawerButton icon={<Gallery/>} />
+      </motion.li>
     </Box>
   );
 };
