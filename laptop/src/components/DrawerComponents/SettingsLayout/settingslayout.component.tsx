@@ -1,7 +1,8 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
 import { ProfileDrawer } from "./SettingsLayoutComponents";
-import { SettingsDrawerButton } from "@components/Drawer/DrawerComponents/DrawerButtons";
+import { SettingsDrawerButton } from "@components/DrawerComponents/DrawerButtons/SettingsDrawerButtons/";
+
 import { Erase,Gallery } from "@icons/";
 import { motion } from "framer-motion";
 import { itemVariants, hoverEffect } from "@utils/";

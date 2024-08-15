@@ -7,6 +7,7 @@ declare module "@dto/*";
 declare module "@icons/*";
 declare module "@utils/*";
 declare module "@service/*";
+declare module "@pages/*"
 
 /*
       "@components/*": ["./src/Components/*"],
