@@ -1,33 +1,36 @@
 //@ts-ignore
 import { useEffect, useState } from "react";
 
-import { StartOrbBtnContextProvider, DateContextProvider } from "@hooks/";
+import {
+  StartOrbBtnContextProvider,
+  DateContextProvider,
+} from "@hooks/";
+import { ChatStateProvider } from "./Hooks/ChatProvider";
 import { DrawerMenu, MainAppBar } from "./Components";
 
 import Grid from "@mui/material/Grid";
 import "./App.css";
+import { ChatApp } from "./Components/ChatApp";
 
 export default function App() {
-  
   const [isOpen, setIsOpen] = useState(false);
-
 
   useEffect(() => {
     const handleMessage = (event: MessageEvent) => {
       if (event.data.type === "ui") {
         const { action } = event.data;
-        console.log('Received message action:', event.data);
+        console.log("Received message action:", event.data);
         setIsOpen(action);
       }
     };
 
-    window.addEventListener('message', handleMessage);
+    window.addEventListener("message", handleMessage);
 
     return () => {
-      window.removeEventListener('message', handleMessage);
+      window.removeEventListener("message", handleMessage);
     };
   }, []);
-  
+
   return (
     <Grid container className="App">
       <Grid
@@ -47,12 +50,15 @@ export default function App() {
           position: "relative",
         }}
       >
-        <DateContextProvider>
-          <StartOrbBtnContextProvider>
-            <MainAppBar />
-            <DrawerMenu />
-          </StartOrbBtnContextProvider>
-        </DateContextProvider>
+        <ChatStateProvider>
+          <DateContextProvider>
+            <StartOrbBtnContextProvider>
+              <MainAppBar />
+              <DrawerMenu />
+            </StartOrbBtnContextProvider>
+          </DateContextProvider>
+          <ChatApp />
+        </ChatStateProvider>
       </Grid>
     </Grid>
   );

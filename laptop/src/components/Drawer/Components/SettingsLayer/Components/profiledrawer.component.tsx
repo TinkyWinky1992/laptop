@@ -1,7 +1,17 @@
 import { Grid, Box, Typography, Avatar } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 
 export const ProfileDrawer: React.FC = () => {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
+  const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      const imageUrl = URL.createObjectURL(file);
+      setSelectedImage(imageUrl);
+    }
+  };
+
   return (
     <Grid
       sx={{
@@ -11,23 +21,33 @@ export const ProfileDrawer: React.FC = () => {
         gap: "10px",
       }}
     >
-      <Avatar
-        component={"button"}
-        sx={{
-          cursor: "pointer",
-          display: "flex",
-          width: { lg: "48px", sm: "30px" },
-          height: { lg: "48px", sm: "30px" },
-          flexDirection: "column",
-          alignItems: "flex-start2",
-          gap: "10px",
-          borderRadius: "12px",
-          border: "2px solid rgba(217, 217, 217, 0.60)",
-          background:
-            " linear-gradient(207deg, rgba(217, 217, 217, 0.20) 0%, rgba(55, 55, 55, 0.20) 57.08%)",
-          backdropFilter: "blur(30px)",
-        }}
-      ></Avatar>
+      <label htmlFor="avatar-upload">
+        <Avatar
+          component={"span"}
+          sx={{
+            cursor: "pointer",
+            display: "flex",
+            width: { lg: "48px", sm: "30px" },
+            height: { lg: "48px", sm: "30px" },
+            flexDirection: "column",
+            alignItems: "center",
+            gap: "10px",
+            borderRadius: "12px",
+            border: "2px solid rgba(217, 217, 217, 0.60)",
+            background:
+              "linear-gradient(207deg, rgba(217, 217, 217, 0.20) 0%, rgba(55, 55, 55, 0.20) 57.08%)",
+            backdropFilter: "blur(30px)",
+          }}
+          src={selectedImage || undefined}
+        />
+      </label>
+      <input
+        type="file"
+        id="avatar-upload"
+        style={{ display: "none" }}
+        accept="image/*"
+        onChange={handleImageChange}
+      />
       <Box
         sx={{
           display: "flex",
@@ -60,7 +80,6 @@ export const ProfileDrawer: React.FC = () => {
           @tinkywinky
         </Typography>
       </Box>
-      
     </Grid>
   );
 };

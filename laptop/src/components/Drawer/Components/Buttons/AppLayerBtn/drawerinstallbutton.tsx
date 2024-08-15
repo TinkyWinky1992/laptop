@@ -1,19 +1,36 @@
 import { Box, Typography } from "@mui/material";
+import { useChatState } from "../../../../../Hooks/ChatProvider";
 import React from "react";
+
 type ButtonProps = {
   borderColor: string;
   backgroundColor: string;
   labelColor: string;
   label: string;
   name: string;
+  id: string; 
+
 };
+
 export const DrawerInstallButtons: React.FC<ButtonProps> = ({
   borderColor,
   backgroundColor,
   labelColor,
   label,
   name,
+  id,
+
 }) => {
+  const { close ,setClose } = useChatState();
+
+  const handleClick = () => {
+    if(id == 'C')
+    {
+      setClose(false);
+    }
+
+  };
+
   return (
     <Box
       component={"button"}
@@ -28,6 +45,7 @@ export const DrawerInstallButtons: React.FC<ButtonProps> = ({
         padding: 0,
         cursor: "pointer",
       }}
+      onClick={handleClick} 
     >
       <Box
         sx={{
@@ -39,13 +57,13 @@ export const DrawerInstallButtons: React.FC<ButtonProps> = ({
           justifyContent: "center",
           alignItems: "center",
           borderRadius: "4px",
-          border: borderColor, //"1px solid rgba(112, 142, 245, 0.80)"
-          background: backgroundColor, //"rgba(112, 142, 245, 0.40)"
+          border: borderColor,
+          background: backgroundColor,
         }}
       >
         <Typography
           sx={{
-            color: labelColor, //"#708EF5"
+            color: labelColor,
             fontFamily: "Inter",
             fontSize: { lg: "12px", sm: "8px" },
             fontStyle: "normal",

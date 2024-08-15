@@ -1,1 +1,1 @@
-export * from './startorb.provider'
+export * from './startorb.hook'
