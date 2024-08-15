@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import { InstalledAppLayout, SettingsLayout, BottomSectionLayout } from "@components/DrawerComponents";
+import { InstalledAppLayout, SettingsLayout, BottomSectionLayout } from "./Components";
 import React, { useState, useEffect } from "react";
 import { useStartOrbBtnContext } from "@hooks/";
 import { motion } from "framer-motion";

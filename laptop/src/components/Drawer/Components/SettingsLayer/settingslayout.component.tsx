@@ -1,14 +1,13 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
-import { ProfileDrawer } from "./SettingsLayoutComponents";
-import { SettingsDrawerButton } from "@components/DrawerComponents/DrawerButtons/SettingsDrawerButtons/";
+import { ProfileDrawer } from "./Components";
+import { SettingsDrawerButton } from "../Buttons";
 
-import { Erase,Gallery } from "@icons/";
+import { Erase, Gallery } from "@icons/";
 import { motion } from "framer-motion";
 import { itemVariants, hoverEffect } from "@utils/";
 
 export const SettingsLayout: React.FC = () => {
-
   return (
     <Box
       sx={{

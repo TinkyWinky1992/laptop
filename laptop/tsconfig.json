@@ -2,7 +2,6 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@pages/*": ["./src/Pages/*"],
       "@components/*": ["./src/Components/*"], 
       "@dto/*": ["./src/Dto/*"],
       "@hooks/*": ["./src/Hooks/*"],

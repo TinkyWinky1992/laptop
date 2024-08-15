@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Typography, Grid } from "@mui/material";
-import { DrawerInstallButtons } from "@components/DrawerComponents/DrawerButtons/InstalledAppsDrawerButtons/";
+import { DrawerInstallButtons } from "../Buttons";
 import { motion  } from "framer-motion";
 import { itemVariants, hoverEffect } from "@utils/";
 

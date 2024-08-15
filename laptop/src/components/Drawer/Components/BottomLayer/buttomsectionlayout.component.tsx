@@ -1,5 +1,5 @@
 import { Box, Grid, Typography } from "@mui/material";
-import { ShutDownButtonDrawer } from "../DrawerButtons";
+import { ShutDownButtonDrawer } from "../Buttons";
 import { SolarMenu } from "@icons/";
 import React from "react";
 

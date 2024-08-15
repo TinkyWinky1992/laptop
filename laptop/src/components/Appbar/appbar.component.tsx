@@ -5,9 +5,9 @@ import { BellIcon, FlowbiteIcon, VolumeIcon, WifiIcon } from "@icons/";
 //import { useDateDetailsContext } from "@hooks";
 //import { timeDto } from "../../Dto";
 //import { test } from "../../service";
-import { DateWatch, TimeWatch } from "@components/watch";
+import { DateWatch, TimeWatch } from "./Components";
 
-import { StartOrbButton } from "@components/";
+import { StartOrbButton } from "./Components/Buttons";
 export const MainAppBar: React.FC = () => {
   /*
   const { setHour, setMinutes } = useDateDetailsContext();

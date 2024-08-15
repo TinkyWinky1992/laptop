@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 
 import { StartOrbBtnContextProvider, DateContextProvider } from "@hooks/";
-import { DrawerMenu, MainAppBar } from "@pages/";
+import { DrawerMenu, MainAppBar } from "./Components";
 
 import Grid from "@mui/material/Grid";
 import "./App.css";

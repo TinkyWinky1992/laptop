@@ -1,1 +1,0 @@
-export * from './settingslayout.component'
