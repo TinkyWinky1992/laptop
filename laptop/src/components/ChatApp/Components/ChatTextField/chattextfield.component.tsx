@@ -15,7 +15,7 @@ export const ChatTextField: React.FC = () => {
         borderTop: "1px solid rgba(255, 255, 255, 0.40)",
         background: "rgba(255, 255, 255, 0.20)",
         backdropFilter: "blur(30px)",
-        marginTop: "-6px",
+        marginTop: "-3px",
       }}
     >
       <TextField
