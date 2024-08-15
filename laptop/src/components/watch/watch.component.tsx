@@ -1,6 +1,6 @@
 import { Typography } from "@mui/material";
 import React from "react";
-import { useDateDetailsContext } from "./watch.provider";
+import { useDateDetailsContext } from "@hooks/";
 
 export const DateWatch: React.FC = () => {
   const { day, month, year } = useDateDetailsContext();

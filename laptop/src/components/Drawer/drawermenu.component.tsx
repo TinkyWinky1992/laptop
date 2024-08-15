@@ -1,12 +1,13 @@
 import { Box } from "@mui/material";
-import { InstalledAppLayout, SettingsLayout } from "./DrawerComponents";
+import { InstalledAppLayout, SettingsLayout, BottomSectionLayout } from "@components/Drawer/DrawerComponents";
 import React, { useState, useEffect } from "react";
-import { useStartOrbBtnContext } from "../Buttons";
+import { useStartOrbBtnContext } from "@hooks/";
 import { motion } from "framer-motion";
 
 export const DrawerMenu: React.FC = () => {
   const { open, drawerRef } = useStartOrbBtnContext();
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
 
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
@@ -49,15 +50,15 @@ export const DrawerMenu: React.FC = () => {
         borderRadius: "12px",
         border: "1px solid rgba(99, 99, 99, 0.60)",
         boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.25)",
-        backdropFilter: "blur(10px)",
+        backdropFilter: "blur(30px)",
       }}
     >
       <Box
         sx={{
           display: "flex",
           flexDirection: "column",
-          width: { lg: "390px", sm: "195px" },
-          height: { lg: "488px", sm: "244px" },
+          width: { lg: "390px", sm: "280px" },
+          height: { lg: "488px", sm: "300px" },
           padding: "20px",
           flexShrink: "0",
         }}
@@ -75,6 +76,7 @@ export const DrawerMenu: React.FC = () => {
           <InstalledAppLayout />
           <SettingsLayout />
         </Box>
+        <BottomSectionLayout />
       </Box>
     </motion.div>
   );

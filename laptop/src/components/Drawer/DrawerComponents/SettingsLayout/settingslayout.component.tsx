@@ -1,10 +1,10 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
 import { ProfileDrawer } from "./SettingsLayoutComponents";
-import { SettingsDrawerButton } from "../DrawerButtons";
-import { Erase,Gallery } from "../../../../icons";
+import { SettingsDrawerButton } from "@components/Drawer/DrawerComponents/DrawerButtons";
+import { Erase,Gallery } from "@icons/";
 import { motion } from "framer-motion";
-import { itemVariants, hoverEffect } from "../drawerutils";
+import { itemVariants, hoverEffect } from "@utils/";
 
 export const SettingsLayout: React.FC = () => {
 
@@ -39,7 +39,7 @@ export const SettingsLayout: React.FC = () => {
         whileHover={hoverEffect}
         style={{ listStyleType: "none" }}
       >
-        <SettingsDrawerButton icon={<Erase/>} />
+        <SettingsDrawerButton icon={<Erase />} name="Erase All Data" />
       </motion.li>
 
       <motion.li
@@ -47,7 +47,7 @@ export const SettingsLayout: React.FC = () => {
         whileHover={hoverEffect}
         style={{ listStyleType: "none" }}
       >
-        <SettingsDrawerButton icon={<Gallery/>} />
+        <SettingsDrawerButton icon={<Gallery />} name="Set Wallpaper" />
       </motion.li>
     </Box>
   );

@@ -1,13 +1,14 @@
-import { useEffect, useState } from 'react';
 //@ts-ignore
-import { StartOrbBtnContextProvider } from './components';
-import { DrawerMenu } from './components';
-import { MainAppBar, DateContextProvider } from './components';
-import Grid from '@mui/material/Grid';
-import './App.css';
+import { useEffect, useState } from "react";
+
+import { StartOrbBtnContextProvider, DateContextProvider } from "@hooks/";
+import { DrawerMenu, MainAppBar } from "@components/";
+
+import Grid from "@mui/material/Grid";
+import "./App.css";
 
 export default function App() {
-  /*
+  
   const [isOpen, setIsOpen] = useState(false);
 
 
@@ -26,8 +27,7 @@ export default function App() {
       window.removeEventListener('message', handleMessage);
     };
   }, []);
-  */
-
+  
   return (
     <Grid container className="App">
       <Grid
@@ -58,8 +58,6 @@ export default function App() {
   );
 }
 //DetailsContext
-
-
 
 /*
 

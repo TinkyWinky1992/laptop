@@ -1,4 +1,13 @@
 {
+  "baseUrl": ".",
+  "paths": {
+    "@/*": [
+      "src/*"
+    ],
+    "@components/*": [
+      "src/Components/*"
+    ]
+  },
   "name": "laptop",
   "private": true,
   "version": "0.0.0",
@@ -29,6 +38,7 @@
     "globals": "^15.9.0",
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.0.0",
-    "vite": "^5.4.0"
+    "vite": "^5.4.0",
+    "vite-tsconfig-paths": "^5.0.1"
   }
 }

@@ -1,11 +1,13 @@
+//@ts-ignore
 import React, { useEffect } from "react";
 import { Box, Grid, Typography } from "@mui/material";
-import { BellIcon, FlowbiteIcon, VolumeIcon, WifiIcon } from "../../icons";
+import { BellIcon, FlowbiteIcon, VolumeIcon, WifiIcon } from "@icons/";
+//import { useDateDetailsContext } from "@hooks";
+//import { timeDto } from "../../Dto";
+//import { test } from "../../service";
+import { DateWatch, TimeWatch } from "@components/watch";
 
-import { DateWatch, TimeWatch, useDateDetailsContext } from "../watch";
-import { timeDto } from "../../Dto";
-import { test } from "../../service";
-import { StartOrbButton } from "../Buttons";
+import { StartOrbButton } from "@components/";
 export const MainAppBar: React.FC = () => {
   /*
   const { setHour, setMinutes } = useDateDetailsContext();

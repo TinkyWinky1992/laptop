@@ -1,7 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import React from "react";
 
-export const SettingsDrawerButton: React.FC<{icon:React.ReactNode}> = ({icon}) => {
+export const SettingsDrawerButton: React.FC<{icon:React.ReactNode, name:string}> = ({icon, name}) => {
   return (
     <Box
       component={"button"}
@@ -28,7 +28,7 @@ export const SettingsDrawerButton: React.FC<{icon:React.ReactNode}> = ({icon}) =
           lineHeight: "normal",
         }}
       >
-        Erase All Data
+        {name}
       </Typography>
     </Box>
   );

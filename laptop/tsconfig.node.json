@@ -1,18 +1,27 @@
 {
   "compilerOptions": {
+    "composite": true,
     "target": "ES2022",
+    "useDefineForClassFields": true,
     "lib": ["ES2023"],
     "module": "ESNext",
     "skipLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@components/*": ["./src/Components/*"],
+      "@dto/*": ["./src/Dto/*"],
+      "@hooks/*": ["./src/Hooks/*"],
+      "@icons/*": ["./src/icons/*"],
+      "@service/*": ["./src/service/*"],
+      "@utils/*": ["./src/utils/*"]
+    },
 
-    /* Bundler mode */
-    "moduleResolution": "bundler",
+    "moduleResolution": "bundler", 
     "allowImportingTsExtensions": true,
     "isolatedModules": true,
     "moduleDetection": "force",
     "noEmit": true,
 
-    /* Linting */
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,

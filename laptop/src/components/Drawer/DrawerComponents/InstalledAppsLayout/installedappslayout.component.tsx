@@ -1,12 +1,10 @@
 import React from "react";
 import { Box, Typography, Grid } from "@mui/material";
-import { DrawerInstallButtons } from "../DrawerButtons";
+import { DrawerInstallButtons } from "@components/Drawer/DrawerComponents/DrawerButtons";
 import { motion  } from "framer-motion";
-import { itemVariants, hoverEffect } from "../drawerutils";
+import { itemVariants, hoverEffect } from "@utils/";
+
 export const InstalledAppLayout: React.FC = () => {
-
-
-
 
   return (
     <Box
