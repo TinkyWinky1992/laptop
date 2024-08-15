@@ -4,7 +4,6 @@ import Draggable from "react-draggable";
 import { ChatBar, ChatTextField, MessageContainer } from "./Components";
 import { useChatState } from "../../Hooks/ChatProvider";
 import { motion } from "framer-motion";
-import { ResizableBox } from "react-resizable";
 export const ChatApp: React.FC = () => {
   const { close } = useChatState();
 
