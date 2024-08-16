@@ -1,4 +1,4 @@
-import { Grid, Box, Typography } from "@mui/material";
+import { Grid } from "@mui/material";
 import React from "react";
 import { Message } from "./Components";
 export const MessageContainer: React.FC = () => {
