@@ -1,13 +1,14 @@
 import { Grid, TextField, IconButton } from "@mui/material";
 import { SendIcon, ResizeIcon } from "../../../../icons";
 import React from "react";
-
+import { useMessage } from "../../../../Hooks/ChatProvider";
 export const ChatTextField: React.FC = () => {
+   const { setText } = useMessage();
   return (
     <Grid
       container
       sx={{
-        position: "relative", // Relative positioning for the container
+        position: "relative",
         display: "flex",
         padding: "4px",
         alignItems: "center",

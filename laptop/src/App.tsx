@@ -52,12 +52,14 @@ export default function App() {
       >
         <ChatStateProvider>
           <DateContextProvider>
+            
             <StartOrbBtnContextProvider>
               <MainAppBar />
               <DrawerMenu />
             </StartOrbBtnContextProvider>
+
+            <ChatApp />
           </DateContextProvider>
-          <ChatApp />
         </ChatStateProvider>
       </Grid>
     </Grid>
