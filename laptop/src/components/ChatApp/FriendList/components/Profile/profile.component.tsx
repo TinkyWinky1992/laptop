@@ -9,20 +9,19 @@ export const Profile: React.FC = () => {
         height: "20%",
         width: "100%",
         backdropFilter: "blur(30px)",
-        display: "flex",
         flexDirection: "row",
         borderBottom: "1px solid #636363",
-        alignItems: "center",
-        gap: "10px", 
+        gap: "10px",
         padding: "10px",
         background:
           "linear-gradient(135deg, rgba(32,248, 255,0.2), rgba(19,149,153,0))",
+        alignItems: "center",
       }}
     >
       <Avatar
         sx={{
-          width: { lg: "48px", sm: "30px" },
-          height: { lg: "48px", sm: "30px" },
+          width: { lg: "70px", sm: "45px" },
+          height: { lg: "70px", sm: "45px" },
           borderRadius: "12px",
           border: "2px solid rgba(217, 217, 217, 0.60)",
           background:
@@ -30,7 +29,17 @@ export const Profile: React.FC = () => {
           backdropFilter: "blur(30px)",
         }}
       />
-      <Grid item>
+      <Grid
+        item
+        sx={{
+          width: { lg: "70px", sm: "45px" },
+          height: { lg: "70px", sm: "45px" },
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "flex-start",
+          alignItems: "flex-start",
+        }}
+      >
         <Typography sx={{ color: "#3498db", fontWeight: "bold" }}>
           Tanker
         </Typography>

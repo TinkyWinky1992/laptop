@@ -3,7 +3,7 @@ import { Grid } from "@mui/material";
 import { Rnd } from "react-rnd";
 import { useChatState } from "../../../Hooks";
 import { motion } from "framer-motion";
-import { FriendListBar, Profile } from "./components";
+import { ChatList, FriendListBar, Profile, Search } from "./components";
 export const ChatAppFriendList: React.FC = () => {
   const { closeFriend } = useChatState();
   const [key, setKey] = useState(0);
@@ -61,6 +61,8 @@ export const ChatAppFriendList: React.FC = () => {
         >
           <FriendListBar />
           <Profile/>
+          <ChatList/>
+          
         </Grid>
          
       </Rnd>
