@@ -75,7 +75,7 @@ export const ChatList: React.FC = () => {
       >
           <Profile />
           <Profile />
-          <Profile />
+          <Profile /> 
           <Profile />
        
       </Grid>

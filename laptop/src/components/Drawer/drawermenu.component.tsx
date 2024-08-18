@@ -8,13 +8,13 @@ export const DrawerMenu: React.FC = () => {
   const { open, drawerRef } = useStartOrbBtnContext();
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
-
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
 
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
   const bottomValue = windowWidth >= 960 ? 80 : 50;
 
   return (
@@ -51,6 +51,7 @@ export const DrawerMenu: React.FC = () => {
         border: "1px solid rgba(99, 99, 99, 0.60)",
         boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.25)",
         backdropFilter: "blur(30px)",
+        zIndex: 1000, 
       }}
     >
       <Box
@@ -81,3 +82,4 @@ export const DrawerMenu: React.FC = () => {
     </motion.div>
   );
 };
+
