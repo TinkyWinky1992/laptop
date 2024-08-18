@@ -1,22 +1,43 @@
 import { Grid, TextField, IconButton } from "@mui/material";
 import { SendIcon, ResizeIcon } from "../../../../icons";
-import React from "react";
+import React, { useState } from "react";
 import { useMessage } from "../../../../Hooks/ChatProvider";
+
 export const ChatTextField: React.FC = () => {
-   const { setText } = useMessage();
+  const { setText, text } = useMessage();
+  const [message, setMessage] = useState("");
+
+  const handleSendMessage = () => {
+    if (message.trim() !== "") {
+      console.log(message)
+      setText(message);
+      setMessage("");
+      console.log(text);
+    }
+  };
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      handleSendMessage();
+    }
+  };
+
+
   return (
     <Grid
       container
       sx={{
         position: "relative",
         display: "flex",
-        padding: "4px",
+        padding: "2px",
         alignItems: "center",
-        gap: "6px",
+        gap: "4px",
         borderTop: "1px solid rgba(255, 255, 255, 0.40)",
         background: "rgba(255, 255, 255, 0.20)",
         backdropFilter: "blur(30px)",
-        marginTop: "-3px",
+        borderBottomLeftRadius: "10px",
+        WebkitBorderBottomRightRadius: "10px",
+        maxHeight: "40px",
       }}
     >
       <TextField
@@ -28,7 +49,6 @@ export const ChatTextField: React.FC = () => {
           fontStyle: "normal",
           fontWeight: 400,
           lineHeight: "normal",
-
           "& .MuiOutlinedInput-root": {
             "& fieldset": {
               border: "none",
@@ -41,9 +61,12 @@ export const ChatTextField: React.FC = () => {
         }}
         variant="outlined"
         placeholder="Say something..."
+        value={message}
+        onChange={(e) => setMessage(e.target.value)}
+        onKeyDown={handleKeyPress}
         InputProps={{
           endAdornment: (
-            <IconButton>
+            <IconButton onClick={handleSendMessage}>
               <SendIcon />
             </IconButton>
           ),
@@ -51,10 +74,9 @@ export const ChatTextField: React.FC = () => {
       />
       <IconButton
         sx={{
-          
-          position: "absolute", 
-          bottom: "4px", 
-          right: "-4px", 
+          position: "absolute",
+          bottom: "4px",
+          right: "-4px",
         }}
       >
         <ResizeIcon />

@@ -1,7 +1,9 @@
 import { Grid } from "@mui/material";
 import React from "react";
 import { Message } from "./Components";
+import { useMessage } from "../../../../Hooks";
 export const MessageContainer: React.FC = () => {
+  const { text } = useMessage();
   return (
     <Grid
       container
@@ -27,8 +29,8 @@ export const MessageContainer: React.FC = () => {
         },
       }}
     >
-      <Message text="שלום שלום שלום"></Message>
-      <Message text="שלום שלום שלום"></Message>
+      <Message text={text}></Message>
+      <Message text={text}></Message>
     </Grid>
   );
 };

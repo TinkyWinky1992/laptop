@@ -1,23 +1,23 @@
 import React, { useState, useEffect } from "react";
-import { Grid, Box } from "@mui/material";
+import { Grid } from "@mui/material";
 import { Rnd } from "react-rnd";
-import { ChatBar, ChatTextField, MessageContainer } from "./Components";
-import { useChatState, MessageStateProvider } from "../../Hooks/ChatProvider";
+import { useChatState } from "../../../Hooks";
 import { motion } from "framer-motion";
-
-export const ChatApp: React.FC = () => {
-  const { close } = useChatState();
+import { FriendListBar, Profile } from "./components";
+export const ChatAppFriendList: React.FC = () => {
+  const { closeFriend } = useChatState();
   const [key, setKey] = useState(0);
-
-
+  
   useEffect(() => {
-    if (close) setKey((prevKey) => prevKey + 1);
-  }, [close]);
+    if (closeFriend) setKey((prevKey) => prevKey + 1);
+  }, [closeFriend]);
 
   return (
     <motion.div
       key={key}
-      animate={close ? { opacity: 0, scale: 0.5 } : { opacity: 1, scale: 1 }}
+      animate={
+        closeFriend ? { opacity: 0, scale: 0.5 } : { opacity: 1, scale: 1 }
+      }
       transition={{ duration: 0.3 }}
       style={{
         position: "absolute",
@@ -35,13 +35,13 @@ export const ChatApp: React.FC = () => {
         default={{
           x: 0,
           y: 0,
-          width: "570px",
-          height: "477px",
+          width: "416px",
+          height: "599px",
         }}
-        minWidth="440px"
-        minHeight="350px"
+        minWidth="300px"
+        minHeight="450px"
         style={{
-          display: "flex", 
+          display: "flex",
           flexDirection: "column",
           borderRadius: "12px",
           border: "1px solid #636363",
@@ -55,20 +55,14 @@ export const ChatApp: React.FC = () => {
             height: "100%",
             width: "100%",
             backdropFilter: "blur(30px)",
-            display: "flex", 
-            flexDirection: "column", 
+            display: "flex",
+            flexDirection: "column",
           }}
         >
-          <ChatBar />
-          <MessageStateProvider>
-            <Box sx={{ flex: 1, overflowY: "auto" }}>
-              <MessageContainer />
-            </Box>
-            <Box sx={{ flexShrink: 0 }}>
-              <ChatTextField />
-            </Box>
-          </MessageStateProvider>
+          <FriendListBar />
+          <Profile/>
         </Grid>
+         
       </Rnd>
     </motion.div>
   );

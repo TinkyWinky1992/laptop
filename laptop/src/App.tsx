@@ -10,7 +10,7 @@ import { DrawerMenu, MainAppBar } from "./Components";
 
 import Grid from "@mui/material/Grid";
 import "./App.css";
-import { ChatApp } from "./Components/ChatApp";
+import { ChatAppFriendList } from "./Components/ChatApp";
 
 export default function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -58,7 +58,7 @@ export default function App() {
               <DrawerMenu />
             </StartOrbBtnContextProvider>
 
-            <ChatApp />
+            <ChatAppFriendList/>
           </DateContextProvider>
         </ChatStateProvider>
       </Grid>

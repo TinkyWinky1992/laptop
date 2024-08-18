@@ -4,6 +4,9 @@ import { Grid, Typography, Box } from "@mui/material";
 import { useDateDetailsContext } from "../../../../../../Hooks";
 export const Message: React.FC<{ text: string }> = ({text}) => {
   const { hour, minutes } = useDateDetailsContext();
+   
+const detectHebrew = (text: string) => /[\u0590-\u05FF]/.test(text);
+
   return (
     <Grid
       sx={{
@@ -11,8 +14,6 @@ export const Message: React.FC<{ text: string }> = ({text}) => {
         flexDirection: "column",
         alignItems: "flex-end",
         gap: "10px",
-        
-
       }}
     >
       <Typography
@@ -30,7 +31,6 @@ export const Message: React.FC<{ text: string }> = ({text}) => {
 
       <Box
         sx={{
-          
           display: "flex",
           padding: "10px 20px",
           flexDirection: "column",
@@ -44,12 +44,11 @@ export const Message: React.FC<{ text: string }> = ({text}) => {
       >
         <Typography
           sx={{
-            color: "#343434",
-            fontFamily: "Inter",
-            fontSize: { lg: "16px", sm: "12px" },
-            fontStyle: "normal",
-            fontWeight: 400,
-            lineHeight: "normal",
+            textAlign: detectHebrew(text) ? "right" : "left", 
+            direction: detectHebrew(text) ? "rtl" : "ltr",
+            fontSize: { lg: "14px", sm: "12px" },
+            whiteSpace: "pre-wrap",
+            wordBreak: "break-word", 
           }}
         >
           {text}

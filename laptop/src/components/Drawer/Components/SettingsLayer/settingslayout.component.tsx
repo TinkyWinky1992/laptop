@@ -5,7 +5,7 @@ import { SettingsDrawerButton } from "../Buttons";
 
 import { Erase, Gallery } from "@icons/";
 import { motion } from "framer-motion";
-import { itemVariants, hoverEffect } from "@utils/";
+import { hoverEffect } from "@utils/";
 
 export const SettingsLayout: React.FC = () => {
   return (
@@ -35,7 +35,6 @@ export const SettingsLayout: React.FC = () => {
       </Typography>
 
       <motion.li
-        variants={itemVariants}
         whileHover={hoverEffect}
         style={{ listStyleType: "none" }}
       >
@@ -43,7 +42,6 @@ export const SettingsLayout: React.FC = () => {
       </motion.li>
 
       <motion.li
-        variants={itemVariants}
         whileHover={hoverEffect}
         style={{ listStyleType: "none" }}
       >

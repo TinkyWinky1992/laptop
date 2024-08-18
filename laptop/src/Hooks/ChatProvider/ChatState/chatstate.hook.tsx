@@ -14,6 +14,8 @@ type DateContext = {
   hide: boolean;
   setHide: Dispatch<SetStateAction<boolean>>;
 
+  closeFriend: boolean;
+  setCloseFriend: Dispatch<SetStateAction<boolean>>;
 };
 
 const DetailsContext = createContext<DateContext | undefined>(undefined);
@@ -23,11 +25,13 @@ export const ChatStateProvider: React.FC<{ children: ReactNode }> = ({
 }) => {
   const [close, setClose] = useState<boolean>(true);
   const [hide, setHide] = useState<boolean>(true);
-
+  const [closeFriend, setCloseFriend] = useState<boolean>(true);
 
   return (
     <DetailsContext.Provider
       value={{
+        closeFriend,
+        setCloseFriend,
         close,
         setClose,
         hide,

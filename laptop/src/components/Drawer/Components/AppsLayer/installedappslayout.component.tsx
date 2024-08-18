@@ -2,7 +2,7 @@ import React from "react";
 import { Box, Typography, Grid } from "@mui/material";
 import { DrawerInstallButtons } from "../Buttons";
 import { motion  } from "framer-motion";
-import { itemVariants, hoverEffect } from "@utils/";
+import { hoverEffect } from "@utils/";
 export const InstalledAppLayout: React.FC = () => {
 
   return (
@@ -45,7 +45,6 @@ export const InstalledAppLayout: React.FC = () => {
       >
         
           <motion.li
-            variants={itemVariants}
             whileHover={hoverEffect}
             style={{ listStyleType: "none" }}
           >
@@ -59,7 +58,6 @@ export const InstalledAppLayout: React.FC = () => {
             />
           </motion.li>
           <motion.li
-            variants={itemVariants}
             whileHover={hoverEffect}
             style={{ listStyleType: "none" }}
           >
@@ -74,7 +72,6 @@ export const InstalledAppLayout: React.FC = () => {
           </motion.li>
 
           <motion.li
-            variants={itemVariants}
             whileHover={hoverEffect}
             style={{ listStyleType: "none" }}
           >
@@ -89,7 +86,6 @@ export const InstalledAppLayout: React.FC = () => {
           </motion.li>
 
           <motion.li
-            variants={itemVariants}
             whileHover={hoverEffect}
             style={{ listStyleType: "none" }}
           >

@@ -21,12 +21,12 @@ export const DrawerInstallButtons: React.FC<ButtonProps> = ({
   id,
 
 }) => {
-  const { setClose } = useChatState();
+  const { setCloseFriend } = useChatState();
 
   const handleClick = () => {
     if(id == 'C')
     {
-      setClose(false);
+      setCloseFriend(false);
     }
 
   };
