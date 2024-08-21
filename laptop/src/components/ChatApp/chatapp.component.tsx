@@ -5,10 +5,12 @@ import { ChatBar, ChatTextField, MessageContainer } from "./Components";
 import { useChatState, MessageStateProvider } from "../../Hooks/ChatProvider";
 import { motion } from "framer-motion";
 
-export const ChatApp: React.FC = () => {
+export const ChatApp: React.FC<{ zindex: number; onClick: () => void }> = ({
+  zindex,
+  onClick,
+}) => {
   const { close } = useChatState();
   const [key, setKey] = useState(0);
-
 
   useEffect(() => {
     if (close) setKey((prevKey) => prevKey + 1);
@@ -17,10 +19,12 @@ export const ChatApp: React.FC = () => {
   return (
     <motion.div
       key={key}
+      onClick={onClick}
       animate={close ? { opacity: 0, scale: 0.5 } : { opacity: 1, scale: 1 }}
       transition={{ duration: 0.3 }}
       style={{
         position: "absolute",
+        zIndex: zindex,
         top: 0,
         left: 0,
         width: "100%",
@@ -41,7 +45,9 @@ export const ChatApp: React.FC = () => {
         minWidth="440px"
         minHeight="350px"
         style={{
-          display: "flex", 
+          position: "absolute",
+          zIndex: zindex,
+          display: "flex",
           flexDirection: "column",
           borderRadius: "12px",
           border: "1px solid #636363",
@@ -55,8 +61,8 @@ export const ChatApp: React.FC = () => {
             height: "100%",
             width: "100%",
             backdropFilter: "blur(30px)",
-            display: "flex", 
-            flexDirection: "column", 
+            display: "flex",
+            flexDirection: "column",
           }}
         >
           <ChatBar />

@@ -1,19 +1,27 @@
 //@ts-ignore
 import { useEffect, useState } from "react";
 
-import {
-  StartOrbBtnContextProvider,
-  DateContextProvider,
-} from "@hooks/";
+import { StartOrbBtnContextProvider, DateContextProvider } from "@hooks/";
 import { ChatStateProvider } from "./Hooks/ChatProvider";
 import { DrawerMenu, MainAppBar } from "./Components";
 
 import Grid from "@mui/material/Grid";
 import "./App.css";
-import { ChatAppFriendList } from "./Components/ChatApp";
+import { ChatApp, ChatAppFriendList } from "./Components/ChatApp";
 
 export default function App() {
   const [isOpen, setIsOpen] = useState(false);
+  const [listZindex, setListZindex] = useState(100);
+  const [chatZindex, setChatZindex] = useState(0);
+
+  const handlelistindex = () => {
+    setListZindex(1);
+    setChatZindex(0);
+  };
+  const handlechatindex = () => {
+    setListZindex(0);
+    setChatZindex(1);
+  };
 
   useEffect(() => {
     const handleMessage = (event: MessageEvent) => {
@@ -52,13 +60,12 @@ export default function App() {
       >
         <ChatStateProvider>
           <DateContextProvider>
-            
             <StartOrbBtnContextProvider>
               <MainAppBar />
               <DrawerMenu />
             </StartOrbBtnContextProvider>
-
-            <ChatAppFriendList/>
+            <ChatApp zindex={listZindex} onClick={handlechatindex} />
+            <ChatAppFriendList zindex={chatZindex} onClick={handlelistindex} />
           </DateContextProvider>
         </ChatStateProvider>
       </Grid>

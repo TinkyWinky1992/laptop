@@ -1,10 +1,16 @@
 import { Button, Grid, Avatar, Typography } from "@mui/material";
 import React from "react";
 import { Search } from "../SearchLayout";
-
+import { useChatState } from "../../../../../Hooks";
 const Profile: React.FC = () => {
+  const { setClose } = useChatState();
+  const handleClick = () => {
+    setClose(false);
+  };
+
   return (
     <Button
+      onClick={handleClick}
       sx={{
         width: "100%",
         height: "60px",
@@ -71,13 +77,25 @@ export const ChatList: React.FC = () => {
           padding: "10px",
           width: "100%",
           flexDirection: "column",
+          height: "370px",
+          overflowY: "auto",
+          overflowX: "hidden",
+          "&::-webkit-scrollbar": {
+            width: "1px",
+          },
+          "&::-webkit-scrollbar-thumb": {
+            backgroundColor: "#888",
+            borderRadius: "10px",
+          },
+          "&::-webkit-scrollbar-thumb:hover": {
+            backgroundColor: "transparent",
+          },
         }}
       >
-          <Profile />
-          <Profile />
-          <Profile /> 
-          <Profile />
-       
+        <Profile />
+        <Profile />
+        <Profile />
+        <Profile />
       </Grid>
     </Grid>
   );

@@ -3,17 +3,23 @@ import { Grid } from "@mui/material";
 import { Rnd } from "react-rnd";
 import { useChatState } from "../../../Hooks";
 import { motion } from "framer-motion";
-import { ChatList, FriendListBar, Profile, Search } from "./components";
-export const ChatAppFriendList: React.FC = () => {
+import { ChatList, FriendListBar, Profile } from "./components";
+
+export const ChatAppFriendList: React.FC<{
+  zindex: number;
+  onClick: () => void;
+}> = ({ zindex, onClick }) => {
+
   const { closeFriend } = useChatState();
   const [key, setKey] = useState(0);
-  
+
   useEffect(() => {
     if (closeFriend) setKey((prevKey) => prevKey + 1);
   }, [closeFriend]);
 
   return (
     <motion.div
+      onClick={onClick} 
       key={key}
       animate={
         closeFriend ? { opacity: 0, scale: 0.5 } : { opacity: 1, scale: 1 }
@@ -21,6 +27,7 @@ export const ChatAppFriendList: React.FC = () => {
       transition={{ duration: 0.3 }}
       style={{
         position: "absolute",
+        zIndex: zindex,
         top: 0,
         left: 0,
         width: "100%",
@@ -41,6 +48,8 @@ export const ChatAppFriendList: React.FC = () => {
         minWidth="300px"
         minHeight="450px"
         style={{
+          position: "absolute",
+          zIndex: zindex,
           display: "flex",
           flexDirection: "column",
           borderRadius: "12px",
@@ -60,11 +69,9 @@ export const ChatAppFriendList: React.FC = () => {
           }}
         >
           <FriendListBar />
-          <Profile/>
-          <ChatList/>
-          
+          <Profile />
+          <ChatList />
         </Grid>
-         
       </Rnd>
     </motion.div>
   );

@@ -99,7 +99,7 @@ export const Search: React.FC = () => {
                   },
                 }}
                 variant="outlined"
-                placeholder="Search Person..."
+                placeholder="Add Friend..."
               />
             </motion.div>
           )}
