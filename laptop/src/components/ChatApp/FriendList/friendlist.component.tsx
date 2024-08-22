@@ -9,7 +9,6 @@ export const ChatAppFriendList: React.FC<{
   zindex: number;
   onClick: () => void;
 }> = ({ zindex, onClick }) => {
-
   const { closeFriend } = useChatState();
   const [key, setKey] = useState(0);
 
@@ -19,8 +18,8 @@ export const ChatAppFriendList: React.FC<{
 
   return (
     <motion.div
-      onClick={onClick} 
       key={key}
+      onClick={onClick}
       animate={
         closeFriend ? { opacity: 0, scale: 0.5 } : { opacity: 1, scale: 1 }
       }
@@ -45,8 +44,8 @@ export const ChatAppFriendList: React.FC<{
           width: "416px",
           height: "599px",
         }}
-        minWidth="300px"
-        minHeight="450px"
+        minWidth="400px"
+        minHeight="580px"
         style={{
           position: "absolute",
           zIndex: zindex,

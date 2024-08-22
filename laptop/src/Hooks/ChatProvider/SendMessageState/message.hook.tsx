@@ -7,12 +7,10 @@ import React, {
   Dispatch,
 } from "react";
 
+// Updated the type to be an array of strings
 type DateContext = {
-  text: string;
-  setText: Dispatch<SetStateAction<string>>;
-
-
-
+  text: string[];
+  setText: Dispatch<SetStateAction<string[]>>;
 };
 
 const DetailsContext = createContext<DateContext | undefined>(undefined);
@@ -20,9 +18,8 @@ const DetailsContext = createContext<DateContext | undefined>(undefined);
 export const MessageStateProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
-  const [text, setText] = useState<string>('');
-
-
+  // Initialize text as an empty array
+  const [text, setText] = useState<string[]>([]);
 
   return (
     <DetailsContext.Provider

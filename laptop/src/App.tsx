@@ -11,17 +11,23 @@ import { ChatApp, ChatAppFriendList } from "./Components/ChatApp";
 
 export default function App() {
   const [isOpen, setIsOpen] = useState(false);
-  const [listZindex, setListZindex] = useState(100);
+  const [listZindex, setListZindex] = useState(1);
   const [chatZindex, setChatZindex] = useState(0);
 
-  const handlelistindex = () => {
-    setListZindex(1);
-    setChatZindex(0);
-  };
-  const handlechatindex = () => {
-    setListZindex(0);
-    setChatZindex(1);
-  };
+
+const handlelistindex = () => {
+  setListZindex(2); 
+  setChatZindex(1); 
+  
+  console.log("list", chatZindex, listZindex);
+};
+
+const handlechatindex = () => {
+  setChatZindex(2); 
+  setListZindex(1); 
+  console.log("chat", chatZindex, listZindex);
+};
+
 
   useEffect(() => {
     const handleMessage = (event: MessageEvent) => {

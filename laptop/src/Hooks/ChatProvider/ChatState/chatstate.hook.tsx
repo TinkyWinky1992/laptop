@@ -8,6 +8,9 @@ import React, {
 } from "react";
 
 type DateContext = {
+  user: string;
+  setUser: Dispatch<SetStateAction<string>>
+
   close: boolean;
   setClose: Dispatch<SetStateAction<boolean>>;
 
@@ -23,6 +26,7 @@ const DetailsContext = createContext<DateContext | undefined>(undefined);
 export const ChatStateProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
+  const [user, setUser] = useState<string>("");
   const [close, setClose] = useState<boolean>(true);
   const [hide, setHide] = useState<boolean>(true);
   const [closeFriend, setCloseFriend] = useState<boolean>(true);
@@ -36,6 +40,8 @@ export const ChatStateProvider: React.FC<{ children: ReactNode }> = ({
         setClose,
         hide,
         setHide,
+        user,
+        setUser,
       }}
     >
       {children}

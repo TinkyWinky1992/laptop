@@ -4,15 +4,13 @@ import React, { useState } from "react";
 import { useMessage } from "../../../../Hooks/ChatProvider";
 
 export const ChatTextField: React.FC = () => {
-  const { setText, text } = useMessage();
+  const { setText } = useMessage();
   const [message, setMessage] = useState("");
 
   const handleSendMessage = () => {
     if (message.trim() !== "") {
-      console.log(message)
-      setText(message);
-      setMessage("");
-      console.log(text);
+      setText((prevText) => [...prevText, message]);
+
     }
   };
   const handleKeyPress = (e: React.KeyboardEvent<HTMLDivElement>) => {

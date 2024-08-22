@@ -3,7 +3,7 @@ import React from "react";
 import { CloseIcon, MinimizeIcon } from "@icons/";
 import { useChatState } from "../../../../Hooks/ChatProvider";
 export const ChatBar: React.FC = () => {
-    const {setClose} = useChatState();
+    const {setClose, user} = useChatState();
     const handleClick = () => {
         setClose(true)
     }
@@ -74,7 +74,7 @@ export const ChatBar: React.FC = () => {
             lineHeight: "normal",
           }}
         >
-          YuvalHaGever
+          {user}
         </Typography>
       </Grid>
       <Grid

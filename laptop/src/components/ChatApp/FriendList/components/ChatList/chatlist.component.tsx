@@ -2,9 +2,16 @@ import { Button, Grid, Avatar, Typography } from "@mui/material";
 import React from "react";
 import { Search } from "../SearchLayout";
 import { useChatState } from "../../../../../Hooks";
-const Profile: React.FC = () => {
-  const { setClose } = useChatState();
+type Details = {
+  name: string;
+  state: string;
+};
+
+const Profile: React.FC<Details> = ({ name, state }) => {
+  const { setClose, setUser } = useChatState();
+  
   const handleClick = () => {
+    setUser(name);
     setClose(false);
   };
 
@@ -13,7 +20,7 @@ const Profile: React.FC = () => {
       onClick={handleClick}
       sx={{
         width: "100%",
-        height: "60px",
+        height: { lg: "60px", sm: "40px" },
         display: "flex",
         alignItems: "center",
       }}
@@ -50,10 +57,10 @@ const Profile: React.FC = () => {
           <Typography
             sx={{ color: "white", fontWeight: "bold", fontSize: "12px" }}
           >
-            Tanker
+            {name}
           </Typography>
           <Typography sx={{ color: "#76c7c0", fontSize: "12px" }}>
-            online
+            {state}
           </Typography>
         </Grid>
       </Grid>
@@ -62,6 +69,20 @@ const Profile: React.FC = () => {
 };
 
 export const ChatList: React.FC = () => {
+  const list: Details[] = [
+    {
+      name: "yuval",
+      state: "Online",
+    },
+    {
+      name: "yogma",
+      state: "Online",
+    },
+    {
+      name: "Dima",
+      state: "Offline",
+    },
+  ];
   return (
     <Grid
       container
@@ -92,11 +113,24 @@ export const ChatList: React.FC = () => {
           },
         }}
       >
-        <Profile />
-        <Profile />
-        <Profile />
-        <Profile />
+        {list.map((user, index) => (
+          <Profile key={index} name={user.name} state={user.state}></Profile>
+        ))}
       </Grid>
     </Grid>
   );
 };
+/*
+
+      {text.map((message, index) => (
+        <Box
+          key={index}
+          sx={{
+            display: "flex",
+            justifyContent: "flex-end",
+          }}
+        >
+          <Message text={message} />
+        </Box>
+      ))}
+        */
